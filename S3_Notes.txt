@@ -1,0 +1,180 @@
+Simple Storage Service (S3)
+
+What is AWS S3? Distributed storage (Global)
+object storage service i.e - Photos,Videos,files, and logs
+Amazon Simple Storage Service (Amazon S3) is storage on the Internet. object storage service
+Amazon S3 to store and retrieve any amount of data at any time, from anywhere on the web.
+
+March 2006: Amazon launched Simple Storage Service (S3)
+
+As part of the AWS Free Tier, you can get started with Amazon S3 for free. Upon sign-up,
+new AWS customers receive 5GB of Amazon S3 storage in the S3 Standard storage class; 20,000 GET Requests; 2,000 PUT, COPY, POST, or LIST Requests;
+100 GB of Data Transfer Out each month.
+
+WHY S3?
+
+designed for unlimited / unstructured manner of storing / Processing / Retrieving 
+and access from anywhere at any time (public)
+
+- Global service
+- It act as a webserver (We can host static web hosting)
+- It also act as a version control system
+
+
+S3 is designed for:
+
+Remote data storage.
+Low cost, pay-as-you go.
+No up-front costs.
+High-availability.
+High bandwidth.	
+
+File system used in S3:
+
+Network File System (NFS) and Server Message Block (SMB).
+
+Features:
+
+- REAL - TIME SCENARIO - 90% Auto-backup system - storage class
+- 99.999999999% Durability.
+- 99.99% Availability.
+
+LIMITATIONS:
+------------
+
+- CANNOT INSTALL SOFTWARES/OS
+ UPTO 5TB OBJECT I CAN STORE ON MY SINGLE ACCOUNT
+
+Functions & Concepts of S3:
+
+COMPONENTS OF S3:
+-----------------
+1. BUCKET - Dir/folder/filesystem
+2. OBJECT - Files
+
+Buckets:
+- A basic storage unit.
+- Collection of Objects.
+- It is a single level container, can contain multiple folders, or objects can be placed directly.
+- Upload and download are easier.
+- Name of the bucket should be globally unique.
+- Allows maximum 100 buckets per user.
+- No size restriction for Bucket.
+- Data kept secured from unauthorized access through authentication mechanism. SSL (Key)
+
+Objects:
+- Equivalent to files.
+- Allows max of 5TB for a single object via multipart upload.
+- Allows 5MB to 5 GB size single put operation (Free tier)
+
+
+How to Access AWS S3 storage?
+Accessible using simple HTTP URLs
+https://s3.amazonaws.com/bucket/folder/key
+
+where bucket is a DNS CNAME record pointing to s3.amazonaws.com)
+
+Bucket Versioning:
+-----------------
+Delete marker - if you delete on delete marker you can retrieve your original object
+Permanent deletion of the object - delete all versions
+
+STORAGE CLASS:
+-------------
+1. STANDARD FREQUENT ACCESS : UPFRONT ADVANCE COLLECTED FOR BOTH STORE / RETRIEVE .. >=3   
+2. STANDARD INFREQUENT ACCESS DATA -  >=30 >=3 AZ'S    ... UPFRONT ADVANCE FOR STORE ... RETRIVEAL - COST - PER GB
+3. ONE ZONE IA - >=30 DAYS, >=1 , PER GB 
+4. REDUCED_REDUCNDANCY : >=60 DAYS, PER GB - CRITICAL , INFREQUET ACCESS  - PER GB
+5. INITELLIGENT-TIERING - >=3 ZONES   ... MONITORING COST 
+6. GLACIER >=90 DAYS - VERY VERY LOW >=3 PER GB   - 1 MIN 12 MINTS 
+7. DEEP GACIER ARCHIVE >=180DAYS - ZIP ...>=3 ... PER GB 3 TO 12 HOURS 
+365 day i can make my test object to be expired 
+
+
+OBJECT LEVEL PROPERTIES:
+1. DETAILS: 
+STANDARD: 99.99999999%
+STAND.INFREQUENT: LESSER THAN STANDARD.
+Reduced Redundancy: 99.99% , LESSER THAN S.IA.
+
+AES 256 - ADVANCED ENCRYPTION STANDARD.
+
+Static web hosting
+
+Object Lock - we can enable while creating the bucket after we cant
+
+Bucket name must be between 3 and 63 characters long
+
+S3 Review:
+----------
+1. S3 - Simple storage service; global service, website , webserver  
+   unlimited, unstructured, store, process , retrieve and public access
+
+2. Real-time usage of S3
+   Autobackup systems
+   System performance normal
+
+3. What is the free-tier limit given in S3? - 5GB
+
+4. What is the maximum object size in S3? - 5TB
+
+5. List out important S3 Components?
+   Object
+   bucket - container for obj, globally unique, no .exe, upto 100...we can increase, no cost   
+
+6. Delete marker: Versioning enabled, when the original object deleted, delete on delete marker
+
+7. How to delete object permanently? - Delete all versions
+
+8. Able to delete the bucket and object in CLI when Versioning enabled?
+   we can't delete even through force command
+
+9. What is the activity S3 is doing additionally when compare to google drive?
+   Processing - "life Cycle manager" - We are avoiding to pay unwanted cost of storage to aws
+   Replication
+   
+10. Bucket and Object types available?
+    private and Public
+    if my bucket is private then can i make my object as public? No
+    
+
+11. What are the ways availble to share the object to the beneficiary?
+    Object url - bucket and object public
+    Add grantee - aws beneficiary account : canonical id 
+
+
+12. What is Storage-Class? why is it essential? List out all?
+    - processing - efficient object management
+    - avoid unwanted pay
+    - Standard, standard-IA, Intelligent tiering, reduced reduncy, one zone, glacier, deep glacier 
+
+13. What is Life-cycle manager?
+    Current - 30 - 60 - 90  -- expire
+    Previous 
+
+14. What is replication?
+    backup and recovery
+
+15. how to download access and secret access key for one aws user? 
+    user account - My security credentials - access keys - generate - download 
+
+16. How to integrate aws console in CLI?
+    aws configure
+    inputs:
+    access key
+    secret access key
+    region
+    json 
+
+17. Will it possible to delete the bucket if it is versioning enabled and objects persist in the bucket?
+    what can we do in this case?
+    we cnnot delete
+    versioning delete
+    bucket deletion
+    GUI
+
+18. Pricing :
+    what is the default bucket limit? will it cost for us?
+    100; No cost
+    Is there any limitation to store the object in bucket?if yes, justify.
+    5TB, Unlimited
